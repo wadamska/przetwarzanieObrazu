@@ -105,6 +105,8 @@ imgLabel.setIcon(new ImageIcon(image));
  private static void Processing(BufferedImage img)
  {
  double gray;
+ double stala = 1.5;
+ 
  int w=img.getWidth(null);
  int h=img.getHeight(null);
  for(int x=0;x<w;x++)
@@ -138,11 +140,37 @@ imgLabel.setIcon(new ImageIcon(image));
 //}
  
 // negatyw zad.4
-r=255-r;
-g=255-g;
-b=255-b;
+//r=255-r;
+//g=255-g;
+//b=255-b;
 
 //kontrast zad.5
+a=(int)((a-128)*stala+128);
+r=(int)((r-128)*stala+128);
+g=(int)((g-128)*stala+128);
+b=(int)((b-128)*stala+128);
+
+if(a<0)
+    a=0;
+else if(a>255)
+        a=255;
+
+if(r<0)
+    r=0;
+else if(r>255)
+        r=255;
+
+if(g<0)
+    g=0;
+else if(g>255)
+        g=255;
+if(b<0)
+    b=0;
+else if(b>255)
+        b=255;
+
+
+//sciemnianie i rozjasnianie zad.6
 
 
  //zapis kanałów
