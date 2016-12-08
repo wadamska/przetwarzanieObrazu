@@ -1,4 +1,3 @@
-
 package przetwarzanieobrazow;
 import java.awt.*;
 import java.awt.event.*;
@@ -8,11 +7,6 @@ import java.io.*;
 import java.net.*;
 import javax.imageio.*;
 
-
-/**
- *
- * @author student
- */
 public class PrzetwarzanieObrazow extends JFrame {
 
  BufferedImage image;
@@ -101,11 +95,12 @@ imgLabel.setIcon(new ImageIcon(image));
  contentPane.add(outputPanel, BorderLayout.SOUTH);
  }
 
-
  private static void Processing(BufferedImage img)
  {
  double gray;
  double stala = 1.5;
+ double jasniej = 1.7;
+ double ciemniej = 0.5;
  
  int w=img.getWidth(null);
  int h=img.getHeight(null);
@@ -145,10 +140,20 @@ imgLabel.setIcon(new ImageIcon(image));
 //b=255-b;
 
 //kontrast zad.5
-a=(int)((a-128)*stala+128);
-r=(int)((r-128)*stala+128);
-g=(int)((g-128)*stala+128);
-b=(int)((b-128)*stala+128);
+//a=(int)((a-128)*stala+128);
+//r=(int)((r-128)*stala+128);
+//g=(int)((g-128)*stala+128);
+//b=(int)((b-128)*stala+128);
+
+//a=(int)(a*jasniej);
+//r=(int)(r*jasniej);
+//g=(int)(g*jasniej);
+//b=(int)(b*jasniej);
+
+a=(int)(a*ciemniej);
+r=(int)(r*ciemniej);
+g=(int)(g*ciemniej);
+b=(int)(b*ciemniej);
 
 if(a<0)
     a=0;
@@ -168,7 +173,6 @@ if(b<0)
     b=0;
 else if(b>255)
         b=255;
-
 
 //sciemnianie i rozjasnianie zad.6
 
